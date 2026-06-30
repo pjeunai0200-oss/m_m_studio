@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase/client";
 
 export default function ContactPage() {
@@ -10,6 +10,23 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [settings, setSettings] = useState({ instagram: "#", kakao: "#", youtube: "#" });
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      const { data } = await supabase.from("settings").select("*");
+      if (data) {
+        const newSettings = { instagram: "#", kakao: "#", youtube: "#" };
+        data.forEach(item => {
+          if (item.key === "instagram") newSettings.instagram = item.value;
+          if (item.key === "kakao") newSettings.kakao = item.value;
+          if (item.key === "youtube") newSettings.youtube = item.value;
+        });
+        setSettings(newSettings);
+      }
+    };
+    fetchSettings();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,9 +96,9 @@ export default function ContactPage() {
               </div>
               
               <div className="flex gap-4 mt-12 pt-8 border-t border-border">
-                <a href="#" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">INSTAGRAM</a>
-                <a href="#" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">카카오채널</a>
-                <a href="#" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">YOUTUBE</a>
+                <a href={settings.instagram} target="_blank" rel="noreferrer" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">INSTAGRAM</a>
+                <a href={settings.kakao} target="_blank" rel="noreferrer" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">카카오채널</a>
+                <a href={settings.youtube} target="_blank" rel="noreferrer" className="text-xs text-muted hover:text-white tracking-[1px] transition-colors">YOUTUBE</a>
               </div>
             </div>
 

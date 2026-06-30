@@ -1,6 +1,15 @@
 import Link from "next/link";
+import { supabase } from "@/utils/supabase/client";
 
-export default function Footer() {
+export default async function Footer() {
+  const { data } = await supabase.from("settings").select("*");
+  let insta = "#", kakao = "#", yt = "#";
+  data?.forEach(d => {
+    if(d.key === "instagram") insta = d.value;
+    if(d.key === "kakao") kakao = d.value;
+    if(d.key === "youtube") yt = d.value;
+  });
+
   return (
     <footer className="bg-dark2 border-t border-border mt-auto">
       <div className="pt-20 pb-16">
@@ -29,9 +38,9 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium tracking-[2px] text-white mb-6 uppercase">FOLLOW</h4>
             <ul className="flex flex-col gap-3 text-sm text-muted">
-              <li><a href="#" className="hover:text-accent transition-colors">Instagram</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">카카오채널</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">YouTube</a></li>
+              <li><a href={insta} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">Instagram</a></li>
+              <li><a href={kakao} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">카카오채널</a></li>
+              <li><a href={yt} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">YouTube</a></li>
             </ul>
           </div>
         </div>
