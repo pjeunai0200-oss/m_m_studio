@@ -1,4 +1,52 @@
+"use client";
+
+import { useState } from "react";
+import { supabase } from "@/utils/supabase/client";
+
 export default function ContactPage() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [room, setRoom] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !phone || !message) {
+      alert("이름, 연락처, 문의 내용을 모두 입력해주세요.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    const { error } = await supabase.from("inquiries").insert([
+      {
+        name,
+        phone,
+        room,
+        message
+      }
+    ]);
+
+    setIsLoading(false);
+
+    if (error) {
+      console.error(error);
+      alert("문의 발송 중 오류가 발생했습니다. 다시 시도해주세요.");
+    } else {
+      setShowModal(true);
+    }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setName("");
+    setPhone("");
+    setRoom("");
+    setMessage("");
+  };
+
   return (
     <>
       <div className="page-header-band">
@@ -38,34 +86,86 @@ export default function ContactPage() {
             </div>
 
             {/* Form Side */}
-            <form className="flex flex-col gap-6 bg-surface p-8 border border-border" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-6 bg-surface p-8 border border-border" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-[#aaa] text-[13px] mb-2">이름 *</label>
-                <input type="text" placeholder="홍길동" required className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors" />
+                <input 
+                  type="text" 
+                  placeholder="홍길동" 
+                  required 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors" 
+                />
               </div>
               <div>
                 <label className="block text-[#aaa] text-[13px] mb-2">연락처 *</label>
-                <input type="tel" placeholder="010-0000-0000" required className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors" />
+                <input 
+                  type="tel" 
+                  placeholder="010-0000-0000" 
+                  required 
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors" 
+                />
               </div>
               <div>
                 <label className="block text-[#aaa] text-[13px] mb-2">희망 공간</label>
-                <select className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors appearance-none">
+                <select 
+                  className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors appearance-none"
+                  value={room}
+                  onChange={(e) => setRoom(e.target.value)}
+                >
                   <option value="">선택해주세요</option>
-                  <option>드럼 작업실</option>
-                  <option>개인 연습실 (월 임대)</option>
-                  <option>LP 라운지</option>
+                  <option value="drum">드럼 작업실</option>
+                  <option value="practice">개인 연습실 (월 임대)</option>
+                  <option value="lp">LP 라운지</option>
+                  <option value="other">기타</option>
                 </select>
               </div>
               <div>
-                <label className="block text-[#aaa] text-[13px] mb-2">문의 내용</label>
-                <textarea rows={4} placeholder="궁금하신 점을 자유롭게 작성해주세요." className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors resize-y" />
+                <label className="block text-[#aaa] text-[13px] mb-2">문의 내용 *</label>
+                <textarea 
+                  rows={4} 
+                  required
+                  placeholder="궁금하신 점을 자유롭게 작성해주세요." 
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full bg-dark2 border border-border text-white px-4 py-3 text-[15px] focus:border-accent focus:outline-none transition-colors resize-y" 
+                />
               </div>
-              <button type="submit" className="btn btn-primary mt-2">문의 보내기</button>
+              <button 
+                type="submit" 
+                disabled={isLoading}
+                className="btn btn-primary mt-2 disabled:opacity-50"
+              >
+                {isLoading ? "전송 중..." : "문의 보내기"}
+              </button>
             </form>
             
           </div>
         </div>
       </section>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[2000] flex items-center justify-center p-4 animate-fadeUp">
+          <div className="bg-dark2 border border-border p-10 max-w-[420px] w-full text-center relative">
+            <p className="text-4xl mb-4">💬</p>
+            <h2 className="text-white text-2xl mb-3 font-medium">문의가 접수되었습니다!</h2>
+            <p className="text-[#aaa] mb-8 text-[15px] leading-relaxed">
+              남겨주신 연락처로 최대한 빠르게<br/>
+              답변해 드리겠습니다. 감사합니다.
+            </p>
+            <button 
+              onClick={closeModal} 
+              className="btn btn-primary btn-block"
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
