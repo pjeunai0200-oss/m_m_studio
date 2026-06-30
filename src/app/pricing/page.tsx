@@ -375,10 +375,14 @@ export default function PricingPage() {
                   </div>
                 )}
               </div>
-              <div className="flex justify-between items-end mb-8">
-                <span className="text-[#444] font-bold">총 결제 금액</span>
+              <div className="flex justify-between items-end mb-6">
+                <span className="text-[#444] font-bold">총 예상 금액</span>
                 <span className="text-2xl font-bold">{total.toLocaleString()}원</span>
               </div>
+              <p className="text-[13px] text-accent text-center mb-6 leading-relaxed">
+                * 현재 시스템은 예약 접수만 진행되며,<br/>
+                실제 결제는 방문 시 <strong>현장에서 진행</strong>해 주시면 됩니다.
+              </p>
               <button 
                 onClick={handleBooking}
                 disabled={isLoading || hours <= 0}
