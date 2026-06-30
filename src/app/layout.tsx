@@ -16,7 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "BEAT & VINYL | 프리미엄 드럼 스튜디오 & LP 라운지 — 인천 부평",
+  title: "M.M.STUDIO | 프리미엄 드럼 스튜디오 & LP 라운지 — 인천 부평",
   description: "인천 부평구 프리미엄 드럼 스튜디오. 녹음, 합주, 레슨, LP 라운지.",
 };
 

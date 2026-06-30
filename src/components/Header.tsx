@@ -41,7 +41,7 @@ export default function Header() {
         <nav className="container h-[80px] flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <span className="font-display text-[26px] tracking-[1px] font-medium italic text-white flex items-center gap-[6px]">
-              BEAT <span className="text-accent text-[22px]">&</span> VINYL
+              M.M.<span className="text-accent text-[22px]">STUDIO</span>
             </span>
           </Link>
 

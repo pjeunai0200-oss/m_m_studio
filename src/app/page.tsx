@@ -5,7 +5,7 @@ export default function Home() {
     <section className="fixed inset-0 z-0">
       <Image
         src="/hero_drum_studio.png"
-        alt="BEAT & VINYL 스튜디오 내부"
+        alt="M.M.STUDIO 스튜디오 내부"
         fill
         className="object-cover object-center block"
         priority

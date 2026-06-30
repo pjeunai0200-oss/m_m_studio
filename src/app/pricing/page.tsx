@@ -342,7 +342,7 @@ export default function PricingPage() {
             {/* Receipt Sidebar */}
             <div className="bg-white text-black p-8 shadow-xl sticky top-[120px] h-fit font-[monospace]">
               <div className="flex justify-between border-b border-dashed border-[#ccc] pb-4 mb-6">
-                <span className="font-bold text-lg">BEAT & VINYL</span>
+                <span className="font-bold text-lg">M.M.STUDIO</span>
                 <span className="text-[#666]">결제 내역서</span>
               </div>
               <div className="flex flex-col gap-3 mb-6 border-b border-dashed border-[#ccc] pb-6">
