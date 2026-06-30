@@ -37,22 +37,22 @@ export default function ContactPage() {
 
     setIsLoading(true);
 
-    const { error } = await supabase.from("inquiries").insert([
-      {
-        name,
-        phone,
-        room,
-        message
+    try {
+      const { error } = await supabase.from("inquiries").insert([
+        { name, phone, room, message }
+      ]);
+
+      if (error) {
+        console.error(error);
+        alert("문의 발송 중 오류가 발생했습니다: " + error.message);
+      } else {
+        setShowModal(true);
       }
-    ]);
-
-    setIsLoading(false);
-
-    if (error) {
-      console.error(error);
-      alert("문의 발송 중 오류가 발생했습니다. 다시 시도해주세요.");
-    } else {
-      setShowModal(true);
+    } catch (err: any) {
+      console.error(err);
+      alert("네트워크 또는 설정 오류가 발생했습니다. Vercel 환경변수를 확인해주세요.");
+    } finally {
+      setIsLoading(false);
     }
   };
 

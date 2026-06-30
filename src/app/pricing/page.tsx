@@ -133,36 +133,41 @@ export default function PricingPage() {
     const offsetDate = new Date(selectedDate.getTime() - (selectedDate.getTimezoneOffset() * 60000));
     const dateStr = offsetDate.toISOString().split("T")[0];
 
-    const { error } = await supabase.from("reservations").insert([
-      {
-        room_type: room,
-        reserve_date: dateStr,
-        start_time: startTime,
-        duration_mins: hours * 60,
-        user_name: userName,
-        user_phone: userPhone,
-        addon_stick: addonStick,
-        addon_drink: addonDrink,
-        total_price: total
-      }
-    ]);
-
-    setIsLoading(false);
-
-    if (error) {
-      alert("예약 처리 중 오류가 발생했습니다.");
-    } else {
-      setShowModal(true);
-      // Visually update immediately
-      setBookedSlots(prev => {
-        const newSet = new Set(prev);
-        const sIdx = TIME_POINTS.indexOf(startTime);
-        const eIdx = TIME_POINTS.indexOf(endTime);
-        for(let i = sIdx; i < eIdx; i++){
-          newSet.add(TIME_POINTS[i]);
+    try {
+      const { error } = await supabase.from("reservations").insert([
+        {
+          room_type: room,
+          reserve_date: dateStr,
+          start_time: startTime,
+          duration_mins: hours * 60,
+          user_name: userName,
+          user_phone: userPhone,
+          addon_stick: addonStick,
+          addon_drink: addonDrink,
+          total_price: total
         }
-        return newSet;
-      });
+      ]);
+
+      if (error) {
+        alert("예약 처리 중 오류가 발생했습니다: " + error.message);
+      } else {
+        setShowModal(true);
+        // Visually update immediately
+        setBookedSlots(prev => {
+          const newSet = new Set(prev);
+          const sIdx = TIME_POINTS.indexOf(startTime);
+          const eIdx = TIME_POINTS.indexOf(endTime);
+          for(let i = sIdx; i < eIdx; i++){
+            newSet.add(TIME_POINTS[i]);
+          }
+          return newSet;
+        });
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert("네트워크 또는 환경변수 설정 오류가 발생했습니다. Vercel 설정을 확인해주세요.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
