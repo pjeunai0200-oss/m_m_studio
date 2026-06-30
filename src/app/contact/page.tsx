@@ -83,7 +83,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-10">
                 <div>
                   <span className="block text-accent text-[11px] tracking-[2px] mb-2 uppercase">📍 위치</span>
-                  <span className="text-white text-[17px] leading-relaxed">인천광역시 부평구<br /><span className="text-sm text-[#777]">(상세 주소는 예약 후 안내)</span></span>
+                  <span className="text-white text-[17px] leading-relaxed">인천광역시 남동구<br /><span className="text-sm text-[#777]">(상세 주소는 예약 후 안내)</span></span>
                 </div>
                 <div>
                   <span className="block text-accent text-[11px] tracking-[2px] mb-2 uppercase">📞 전화 / 문자</span>

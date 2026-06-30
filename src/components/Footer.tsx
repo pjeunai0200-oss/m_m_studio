@@ -16,7 +16,7 @@ export default async function Footer() {
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
             <span className="font-display text-2xl italic tracking-wide text-white block mb-4">M.M.STUDIO</span>
-            <p className="text-sm text-muted mb-2">음악인들의 아지트 — 인천 부평구</p>
+            <p className="text-sm text-muted mb-2">음악인들의 아지트 — 인천 남동구</p>
             <p className="text-xs text-[#555]">사업자등록번호: 000-00-00000 | 대표: 홍길동</p>
           </div>
           <div>
@@ -48,7 +48,7 @@ export default async function Footer() {
       <div className="border-t border-border py-6">
         <div className="container flex flex-col md:flex-row justify-between items-center text-xs text-[#555]">
           <p>© 2026 M.M.STUDIO. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">인천광역시 부평구 | 개인정보처리방침 | <Link href="/admin" className="hover:text-white transition-colors">Admin</Link></p>
+          <p className="mt-2 md:mt-0">인천광역시 남동구 | 개인정보처리방침 | <Link href="/admin" className="hover:text-white transition-colors">Admin</Link></p>
         </div>
       </div>
     </footer>

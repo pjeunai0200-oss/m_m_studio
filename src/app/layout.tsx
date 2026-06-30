@@ -16,11 +16,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "M.M.STUDIO | 프리미엄 드럼 스튜디오 & LP 라운지 — 인천 부평",
-  description: "인천 부평구 프리미엄 드럼 스튜디오. 녹음, 합주, 레슨, LP 라운지.",
+  title: "M.M.STUDIO | 프리미엄 드럼 스튜디오 & LP 라운지 — 인천 남동",
+  description: "인천 남동구 프리미엄 드럼 스튜디오. 녹음, 합주, 레슨, LP 라운지.",
   openGraph: {
     title: "M.M.STUDIO | 프리미엄 드럼 스튜디오",
-    description: "인천 부평구 음악인들의 아지트. 드럼 작업실, 개인 연습실, LP 라운지",
+    description: "인천 남동구 음악인들의 아지트. 드럼 작업실, 개인 연습실, LP 라운지",
     url: "https://m-m-studio-six.vercel.app",
     siteName: "M.M.STUDIO",
     images: [

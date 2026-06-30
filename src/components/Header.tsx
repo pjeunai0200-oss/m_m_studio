@@ -26,7 +26,7 @@ export default function Header() {
     <>
       <div className="relative z-[1001] bg-dark2 text-muted text-[11px] tracking-[1px] py-[6px] border-b border-border">
         <div className="container flex justify-between items-center">
-          <span>인천 부평구 드럼 스튜디오</span>
+          <span>인천 남동구 드럼 스튜디오</span>
           <div className="flex items-center gap-3">
             <Link href="/pricing" className="hover:text-white transition-colors">대여 계산기</Link>
             <span className="text-[#444]">|</span>
