@@ -11,7 +11,7 @@ export default async function Footer() {
   });
 
   return (
-    <footer className="bg-dark2 border-t border-border mt-auto">
+    <footer className="bg-dark2 border-t border-border mt-auto relative z-10">
       <div className="pt-20 pb-16">
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
