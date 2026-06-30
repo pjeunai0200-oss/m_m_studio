@@ -48,7 +48,7 @@ export default async function Footer() {
       <div className="border-t border-border py-6">
         <div className="container flex flex-col md:flex-row justify-between items-center text-xs text-[#555]">
           <p>© 2026 M.M.STUDIO. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">인천광역시 부평구 | 개인정보처리방침</p>
+          <p className="mt-2 md:mt-0">인천광역시 부평구 | 개인정보처리방침 | <Link href="/admin" className="hover:text-white transition-colors">Admin</Link></p>
         </div>
       </div>
     </footer>
