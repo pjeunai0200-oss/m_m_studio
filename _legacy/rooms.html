@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE ROOMS | BEAT & VINYL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-inner">
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span>인천 부평구 드럼 스튜디오</span>
+      <div class="top-bar-links">
+        <a href="calculator.html">대여 계산기</a>
+        <span class="tb-divider">|</span>
+        <a href="lp.html">LP 쇼룸</a>
+        <span class="tb-divider">|</span>
+        <a href="contact.html">예약 문의</a>
+      </div>
+    </div>
+  </div>
+
+  <header id="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">BEAT <span class="logo-amp">&</span> VINYL</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="rooms.html" class="nav-link active">THE ROOMS</a></li>
+        <li><a href="calculator.html" class="nav-link">PRICING</a></li>
+        <li><a href="lp.html" class="nav-link">LP SHOWROOM</a></li>
+        <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+      </ul>
+      <a href="calculator.html" class="btn btn-primary nav-book">BOOK NOW</a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header-band">
+      <div class="container">
+        <span class="eyebrow">OUR SPACES</span>
+        <h1 class="giant-title">THE ROOMS</h1>
+        <p class="page-header-desc">드럼 작업실부터 감성 LP 라운지까지,<br />음악인들의 모든 것이 이 곳에 있습니다.</p>
+      </div>
+    </div>
+
+    <!-- ROOMS SLIDER -->
+    <section class="rooms-section">
+      <div class="rooms-slider-wrap">
+        <button class="slider-arrow left" id="rooms-prev" aria-label="이전">&#8592;</button>
+        <div class="rooms-track-outer" id="rooms-track-outer">
+          <div class="rooms-track" id="rooms-track">
+
+            <div class="room-slide" id="slide-drum">
+              <img src="card_drum_studio.png" alt="드럼 작업실" class="room-slide-img" />
+              <div class="room-slide-info reveal">
+                <span class="room-tag">녹음 · 합주 · 레슨</span>
+                <h3>드럼 작업실</h3>
+                <p>전문 녹음 및 개인 연습용 최상급 세팅. 외경 6m × 5m의 넓은 공간에서 제약 없이 연주하세요.</p>
+                <span class="room-price">15,000<small>원 / 시간</small></span>
+                <a href="calculator.html" class="btn btn-primary" style="margin-top:8px;width:fit-content">요금 계산하기</a>
+              </div>
+            </div>
+
+            <div class="room-slide" id="slide-practice">
+              <img src="card_practice_room.png" alt="월 임대 연습실" class="room-slide-img" />
+              <div class="room-slide-info reveal">
+                <span class="room-tag">24시간 운영</span>
+                <h3>월 임대 연습실</h3>
+                <p>전공생들을 위한 24시간 지정 대여 연습실. 나만의 공간에서 집중적으로 실력을 키우세요.</p>
+                <span class="room-price">10,000<small>원 / 시간</small></span>
+                <a href="contact.html" class="btn btn-primary" style="margin-top:8px;width:fit-content">문의하기</a>
+              </div>
+            </div>
+
+            <div class="room-slide" id="slide-lp">
+              <img src="card_lp_lounge.png" alt="LP 청음 라운지" class="room-slide-img" />
+              <div class="room-slide-info reveal">
+                <span class="room-tag">청음 · 휴식</span>
+                <h3>LP 청음 & 감성 라운지</h3>
+                <p>따뜻한 조명 아래 턴테이블과 음악 잡지가 있는 힐링 공간. 연주 후 아날로그 감성으로 쉬어가세요.</p>
+                <span class="room-price">무료<small> (예약자 전용)</small></span>
+                <a href="lp.html" class="btn btn-primary" style="margin-top:8px;width:fit-content">LP 쇼룸 보기</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="slider-arrow right" id="rooms-next" aria-label="다음">&#8594;</button>
+      </div>
+
+      <div class="rooms-dots" id="rooms-dots">
+        <button class="dot active" data-idx="0"></button>
+        <button class="dot" data-idx="1"></button>
+        <button class="dot" data-idx="2"></button>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-band">
+      <div class="stats-inner">
+        <div class="sstat"><span class="snum">50cm</span><span class="slbl">이중 방음벽</span></div>
+        <div class="sstat"><span class="snum">24H</span><span class="slbl">월 임대 운영</span></div>
+        <div class="sstat"><span class="snum">3+</span><span class="slbl">전용 공간</span></div>
+        <div class="sstat"><span class="snum">100+</span><span class="slbl">LP 컬렉션</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="ft-brand">
+          <span class="footer-logo">BEAT & VINYL</span>
+          <p>음악인들의 아지트 — 인천 부평구</p>
+          <p class="ft-reg">사업자등록번호: 000-00-00000 | 대표: 홍길동</p>
+        </div>
+        <div class="ft-col"><h4>SPACES</h4><ul><li><a href="rooms.html">드럼 작업실</a></li><li><a href="rooms.html">개인 연습실</a></li><li><a href="rooms.html">LP 라운지</a></li></ul></div>
+        <div class="ft-col"><h4>INFO</h4><ul><li><a href="calculator.html">대여 요금</a></li><li><a href="lp.html">LP 쇼룸</a></li><li><a href="contact.html">예약 문의</a></li></ul></div>
+        <div class="ft-col"><h4>FOLLOW</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">카카오채널</a></li><li><a href="#">YouTube</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© 2026 BEAT & VINYL. All rights reserved.</p><p>인천광역시 부평구 | 개인정보처리방침</p></div></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

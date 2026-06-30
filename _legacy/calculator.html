@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRICING | BEAT & VINYL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-inner">
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span>인천 부평구 드럼 스튜디오</span>
+      <div class="top-bar-links">
+        <a href="calculator.html">대여 계산기</a>
+        <span class="tb-divider">|</span>
+        <a href="lp.html">LP 쇼룸</a>
+        <span class="tb-divider">|</span>
+        <a href="contact.html">예약 문의</a>
+      </div>
+    </div>
+  </div>
+
+  <header id="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">BEAT <span class="logo-amp">&</span> VINYL</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="rooms.html" class="nav-link">THE ROOMS</a></li>
+        <li><a href="calculator.html" class="nav-link active">PRICING</a></li>
+        <li><a href="lp.html" class="nav-link">LP SHOWROOM</a></li>
+        <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+      </ul>
+      <a href="calculator.html" class="btn btn-primary nav-book">BOOK NOW</a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header-band">
+      <div class="container">
+        <span class="eyebrow">PRICING</span>
+        <h1 class="giant-title">대여 요금</h1>
+        <p class="page-header-desc">원하는 옵션을 선택하면 실시간으로 요금이 계산됩니다.</p>
+      </div>
+    </div>
+
+    <section class="section calc-section">
+      <div class="container">
+        <div class="calc-layout">
+          <div class="calc-panel reveal">
+            <!-- Room -->
+            <div class="calc-group">
+              <label class="clabel">SPACE</label>
+              <div class="room-opts">
+                <label class="ropt" id="ropt-drum">
+                  <input type="radio" name="room" value="15000" id="room-drum" checked />
+                  <div class="ropt-inner">
+                    <div>
+                      <span class="ropt-name">드럼 작업실</span>
+                      <span class="ropt-sub">녹음 · 합주 · 레슨</span>
+                    </div>
+                    <span class="ropt-price">15,000원 / h</span>
+                  </div>
+                </label>
+                <label class="ropt" id="ropt-practice">
+                  <input type="radio" name="room" value="10000" id="room-practice" />
+                  <div class="ropt-inner">
+                    <div>
+                      <span class="ropt-name">개인 연습실</span>
+                      <span class="ropt-sub">월 임대 · 24시간</span>
+                    </div>
+                    <span class="ropt-price">10,000원 / h</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="calc-group">
+              <label class="clabel">
+                HOURS
+                <span class="hours-badge" id="hours-badge">2시간</span>
+              </label>
+              <input type="range" id="hours-slider" min="1" max="10" value="2" step="1" class="calc-slider" />
+              <div class="slider-labels">
+                <span>1시간</span><span>5시간</span><span>10시간</span>
+              </div>
+            </div>
+            <!-- Addons -->
+            <div class="calc-group">
+              <label class="clabel">ADD-ONS</label>
+              <div class="addons-list">
+                <label class="addon" id="addon-stick-wrap">
+                  <input type="checkbox" id="addon-stick" value="2000" />
+                  <div class="addon-inner">
+                    <span class="addon-icon">🥁</span>
+                    <span class="addon-name">드럼 스틱 대여</span>
+                    <span class="addon-price">+ 2,000원</span>
+                  </div>
+                </label>
+                <label class="addon" id="addon-drink-wrap">
+                  <input type="checkbox" id="addon-drink" value="3000" />
+                  <div class="addon-inner">
+                    <span class="addon-icon">☕</span>
+                    <span class="addon-name">음료 이용권</span>
+                    <span class="addon-price">+ 3,000원</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Receipt -->
+          <div class="calc-receipt reveal">
+            <div class="receipt-top">
+              <span class="receipt-logo">BEAT & VINYL</span>
+              <span class="receipt-date" id="receipt-date"></span>
+            </div>
+            <div class="receipt-lines" id="receipt-lines">
+              <div class="receipt-line">
+                <span id="rl-room-name">드럼 작업실 × 2시간</span>
+                <span id="rl-room-price">30,000원</span>
+              </div>
+              <div class="receipt-line hidden" id="rl-stick">
+                <span>드럼 스틱 대여</span>
+                <span>2,000원</span>
+              </div>
+              <div class="receipt-line hidden" id="rl-drink">
+                <span>음료 이용권</span>
+                <span>3,000원</span>
+              </div>
+            </div>
+            <div class="receipt-divider"></div>
+            <div class="receipt-total">
+              <span>총 예상 금액</span>
+              <span class="total-num" id="total-num">30,000원</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="reserve-btn">예약 신청하기</button>
+            <p class="receipt-note">* 최종 금액은 현장에서 확인됩니다</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box" id="modal-box" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close">✕</button>
+      <p class="modal-emoji">🎉</p>
+      <h2 class="modal-title">예약 신청 완료!</h2>
+      <p class="modal-body">예약 신청이 접수되었습니다.<br />빠른 시일 내에 연락드리겠습니다.</p>
+      <div class="modal-price-row">
+        <span>예상 금액</span>
+        <span id="modal-price" class="modal-price-val">30,000원</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="modal-ok">확인</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="ft-brand">
+          <span class="footer-logo">BEAT & VINYL</span>
+          <p>음악인들의 아지트 — 인천 부평구</p>
+          <p class="ft-reg">사업자등록번호: 000-00-00000 | 대표: 홍길동</p>
+        </div>
+        <div class="ft-col"><h4>SPACES</h4><ul><li><a href="rooms.html">드럼 작업실</a></li><li><a href="rooms.html">개인 연습실</a></li><li><a href="rooms.html">LP 라운지</a></li></ul></div>
+        <div class="ft-col"><h4>INFO</h4><ul><li><a href="calculator.html">대여 요금</a></li><li><a href="lp.html">LP 쇼룸</a></li><li><a href="contact.html">예약 문의</a></li></ul></div>
+        <div class="ft-col"><h4>FOLLOW</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">카카오채널</a></li><li><a href="#">YouTube</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© 2026 BEAT & VINYL. All rights reserved.</p><p>인천광역시 부평구 | 개인정보처리방침</p></div></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

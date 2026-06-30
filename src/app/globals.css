@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-surface: #222222;
+  --color-border: #2e2e2e;
+  --color-accent: #8FAF88;
+  --color-accentHover: #a8c5a1;
+  --color-accentGlow: rgba(143, 175, 136, 0.15);
+  --color-dark2: #181818;
+  --color-muted: #888888;
+  --color-black: #0a0a0a;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-display: var(--font-cormorant), serif;
+  --font-body: var(--font-outfit), sans-serif;
+
+  --animate-fadeUp: fadeUp 0.8s ease both;
+  --animate-wave: wave 1.2s ease-in-out infinite;
+  
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes wave {
+    0%, 100% { height: 4px; }
+    50% { height: 16px; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f2f2f2;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-outfit), sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Typography Defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1240px] mx-auto px-6 w-full;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-[15px] font-medium tracking-[1px] transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-accent text-black hover:bg-accentHover shadow-[0_0_12px_var(--accentGlow)];
+  }
+  .btn-outline {
+    @apply bg-transparent text-foreground border border-[rgba(255,255,255,0.3)] hover:bg-[rgba(255,255,255,0.08)];
+  }
+  .btn-block {
+    @apply w-full block text-center;
+  }
+
+  .eyebrow {
+    @apply block text-accent text-xs tracking-[4px] uppercase font-medium mb-3;
+  }
+  .giant-title {
+    @apply font-display text-[clamp(48px,8vw,110px)] font-light italic leading-[0.9] tracking-[-1px] text-white;
+  }
+  .giant-title-sm {
+    @apply font-display text-[clamp(36px,5vw,64px)] font-light italic leading-tight tracking-[-1px] text-white mb-6;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
