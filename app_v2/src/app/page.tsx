@@ -32,9 +32,9 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative h-[400px] md:h-[600px] w-full z-10 animate-float">
+          <div className="relative h-[250px] sm:h-[400px] md:h-[600px] w-full z-10 animate-float mt-8 md:mt-0">
             {/* Using the provided reference image */}
-            <div className="absolute inset-0 bg-white rounded-full shadow-2xl overflow-hidden border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div className="absolute inset-0 bg-white rounded-full shadow-2xl overflow-hidden border-4 md:border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <Image
                 src="/adult_kidscafe_hero_1782866292142.png"
                 alt="어른이 드럼 스튜디오"
@@ -45,10 +45,10 @@ export default function Home() {
             </div>
             
             {/* Floating decoration images */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white transform -rotate-12 animate-wiggle">
+            <div className="absolute -top-6 -right-6 md:-top-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 bg-white rounded-3xl shadow-xl overflow-hidden border-2 md:border-4 border-white transform -rotate-12 animate-wiggle">
               <Image src="/adult_drum_pastel_1782866300088.png" alt="파스텔 드럼 세트" fill className="object-cover" />
             </div>
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white transform rotate-12 animate-wiggle" style={{ animationDelay: "0.5s" }}>
+            <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-28 h-28 md:w-48 md:h-48 bg-white rounded-full shadow-xl overflow-hidden border-2 md:border-4 border-white transform rotate-12 animate-wiggle" style={{ animationDelay: "0.5s" }}>
               <Image src="/adult_lounge_fun_1782866308733.png" alt="키즈카페 라운지" fill className="object-cover" />
             </div>
           </div>
@@ -56,14 +56,14 @@ export default function Home() {
         
         {/* Wavy bottom border */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-          <svg className="relative block w-[calc(100%+1.3px)] h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <svg className="relative block w-[calc(100%+1.3px)] h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,118.17,192.27,104.5Z" className="fill-white"></path>
           </svg>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-white relative">
         <div className="container">
           <div className="text-center mb-16 animate-bounceUp">
             <span className="eyebrow">OUR SPACES</span>
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Preview Section */}
-      <section className="py-24 bg-[#F0FAFF] overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#F0FAFF] overflow-hidden">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="giant-title-sm text-[#EF476F]">찰칵! 어른이들의 놀이시간 📸</h2>
@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-16 md:py-24 bg-white text-center px-4">
         <div className="container max-w-3xl">
           <h2 className="giant-title-sm text-[#118AB2] mb-6">지친 일상 속 특별한<br/>나만의 놀이터를 만나보세요!</h2>
           <p className="text-xl text-[#64748b] mb-10">지금 예약하고 동심으로 돌아가 신나게 힐링하세요!</p>

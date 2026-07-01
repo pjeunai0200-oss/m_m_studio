@@ -56,6 +56,7 @@
     font-family: var(--font-body), sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    word-break: keep-all; /* Keep Korean words together */
   }
 
   /* Typography Defaults */
