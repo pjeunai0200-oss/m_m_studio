@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "뽀롱뽀롱 스튜디오",
     images: [
       {
-        url: "/hero_drum_studio.png",
+        url: "/adult_kidscafe_hero_1782866292142.png",
         width: 1200,
         height: 630,
         alt: "뽀롱뽀롱 스튜디오 내부",
