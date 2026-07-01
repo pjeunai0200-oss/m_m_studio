@@ -65,7 +65,9 @@ export default function ReviewsPage() {
           .from('reviews')
           .upload(filePath, imageFile);
 
-        if (uploadError) throw uploadError;
+        if (uploadError) {
+           throw new Error("사진 업로드 에러: " + uploadError.message);
+        }
 
         const { data } = supabase.storage.from('reviews').getPublicUrl(filePath);
         imageUrl = data.publicUrl;
@@ -83,7 +85,9 @@ export default function ReviewsPage() {
           }
         ]);
 
-      if (error) throw error;
+      if (error) {
+         throw new Error("데이터베이스 저장 에러: " + error.message);
+      }
 
       // Reset and refresh
       setShowModal(false);
@@ -94,8 +98,8 @@ export default function ReviewsPage() {
       fetchReviews();
 
     } catch (err: any) {
-      alert("후기 등록에 실패했습니다. (Storage 설정 등을 확인해주세요!)\n" + err.message);
-      console.error(err);
+      alert("에러가 발생했습니다: \n" + err.message);
+      console.error("Full error:", err);
     } finally {
       setIsSubmitting(false);
     }
